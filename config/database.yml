@@ -19,8 +19,7 @@ development:
   encoding: unicode
   database: picture_this_development
   pool: 5
-  username: picture_this
-  password:
+  host: localhost
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -46,15 +45,13 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: picture_this_test
+  database: picture_this_development
   pool: 5
-  username: picture_this
-  password:
+  host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
   database: picture_this_production
   pool: 5
-  username: picture_this
-  password:
+
