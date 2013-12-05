@@ -45,7 +45,7 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: picture_this_development
+  database: picture_this_test
   pool: 5
   host: localhost
 

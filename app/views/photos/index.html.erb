@@ -1,0 +1,12 @@
+<h1>Listings</h1>
+
+
+<table>
+	<% @photos.each do |photo| %>
+	  <tr>
+	    <td><%= photo.title %></td>
+	    <td><%= photo.text %></td>
+	    <td><%= image_tag photo.image.url %></td>
+	  </tr>
+	<% end %>
+</table>

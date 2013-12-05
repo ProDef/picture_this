@@ -1,0 +1,13 @@
+<p>
+  	<strong>title:</strong>
+  <%= @photos.title %>
+</p>
+
+<p>
+<strong><%= image_tag @photos.photo.url(:thumb) %></strong>
+</p>
+
+<p>
+  	<strong>description:</strong>
+  <%= @photos.text %>
+</p>
