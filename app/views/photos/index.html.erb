@@ -1,12 +1,15 @@
 <h1>Listings</h1>
 
-
+<td><%= link_to 'NEW', new_photo_path %></td>
 <table>
-	<% @photos.each do |photo| %>
+	<% @photo.each do |photo| %>
 	  <tr>
 	    <td><%= photo.title %></td>
 	    <td><%= photo.text %></td>
 	    <td><%= image_tag photo.image.url %></td>
+	    <td><%= link_to 'Show', photo_path(photo) %></td>
+	    <td><%= link_to 'Destroy', photo_path(photo),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	  </tr>
 	<% end %>
 </table>

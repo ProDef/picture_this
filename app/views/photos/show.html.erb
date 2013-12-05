@@ -1,13 +1,14 @@
+
 <p>
-  	<strong>title:</strong>
-  <%= @photos.title %>
+  <strong>Restaurant:</strong>
+  <%= @photo.title %>
+</p>
+ 
+<p>
+  <strong>description:</strong>
+  <%= @photo.text %>
 </p>
 
 <p>
-<strong><%= image_tag @photos.photo.url(:thumb) %></strong>
-</p>
-
-<p>
-  	<strong>description:</strong>
-  <%= @photos.text %>
+<strong><%= image_tag @photo.image.url(:thumb) %></strong>
 </p>
