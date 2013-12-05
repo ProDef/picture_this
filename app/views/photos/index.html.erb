@@ -6,7 +6,9 @@
 	  <tr>
 	    <td><%= photo.title %></td>
 	    <td><%= photo.text %></td>
-	    <td><%= image_tag photo.image.url %></td>
+	    <td><%= tag_names(photo) %></td>
+	    <td><%= image_tag photo.image.url(:thumb) %></td>
+	    
 	  </tr>
 	<% end %>
 </table>

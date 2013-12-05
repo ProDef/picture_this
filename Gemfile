@@ -36,12 +36,12 @@ end
 
 group :test do
 	gem 'rspec-rails'
-	gem 'cucumber-rails'
+	gem 'cucumber-rails', :require => false
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'selenium-webdriver'
 	gem 'factory_girl_rails'
-    gem 'shoulda-matchers'
+  gem 'shoulda-matchers'
 	gem "simplecov", :require => false
 end
 
