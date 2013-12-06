@@ -37,4 +37,15 @@ ActiveRecord::Schema.define(version: 20131205170458) do
     t.datetime "image_updated_at"
   end
 
+  create_table "photos_tags", id: false, force: true do |t|
+    t.integer "photo_id", null: false
+    t.integer "tag_id",   null: false
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
