@@ -3,7 +3,7 @@
 
 <td><%= link_to 'NEW', new_photo_path %></td>
 <div>
-	<% @photos.each do |photo| %>
+	<% @photo.each do |photo| %>
 	  <div class='col-md-4'>
       <h3><%= photo.title %></h3>
       <%= image_tag photo.image.url(:thumb), class: 'uploaded-pic' %>
