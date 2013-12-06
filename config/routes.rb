@@ -6,9 +6,10 @@ PictureThis::Application.routes.draw do
   # You can have the root of your site routed with "root"
    resources :photos do 
     resources :comments
-    resources :tags
+    
   end
 
+   resources :tags 
    root 'welcome#index'
 
   # Example of regular route:
