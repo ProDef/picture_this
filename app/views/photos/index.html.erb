@@ -1,17 +1,20 @@
 <h1>Listings</h1>
 
+
 <td><%= link_to 'NEW', new_photo_path %></td>
-<table>
-	<% @photo.each do |photo| %>
-	  <tr>
-	    <td><%= photo.title %></td>
-	    <td><%= photo.text %></td>
-	    <td><%= image_tag photo.image.url(:thumb) %></td>
-	    <td><%= tag_names(photo) %></td>
-	    <td><%= link_to 'Show', photo_path(photo) %></td>
+<div>
+	<% @photos.each do |photo| %>
+	  <div class='col-md-4'>
+      <h3><%= photo.title %></h3>
+      <%= image_tag photo.image.url(:thumb), class: 'uploaded-pic' %>
+      	<p><%= photo.text %></p>
+      	<p>Tags:
+        <%= tag_names(photo) %>
+      </p>
+      <td><%= link_to 'Show', photo_path(photo) %></td>
 	    <td><%= link_to 'Destroy', photo_path(photo),
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-	  </tr>
+    </div>
+    
 	<% end %>
-</table>
+</div>
