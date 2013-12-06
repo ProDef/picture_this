@@ -12,10 +12,11 @@ class Photo < ActiveRecord::Base
 
   def tag_names=(tags_string)
     tags_string.split(' ').each do |tag|
-    	self.tags << Tag.create(name: tag)
+    	      new_tag = Tag.find_or_create_by(name: tag)
+            new_tag.slug = new_tag.name.gsub('#', '').downcase
+            new_tag.save
+            self.tags << new_tag
     end
   end
-        
-
 
 end

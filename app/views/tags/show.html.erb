@@ -1,9 +1,9 @@
-<h1>Listings</h1>
+<h1><%= @tag.name %></h1>
 
-
-<div>
-	<% @photos.each do |photo| %>
-	  <div class='col-md-4'>
+<div class='row'>
+	
+  <% @tag.photos.each do |photo| %>
+    <div class='col-md-4'>
       <h3><%= photo.title %></h3>
       <%= image_tag photo.image.url(:thumb), class: 'uploaded-pic' %>
       	<p><%= photo.text %></p>
@@ -11,5 +11,6 @@
         <%= tag_names(photo) %>
       </p>
     </div>
-	<% end %>
+  
+  <% end %>
 </div>
