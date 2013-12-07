@@ -10,9 +10,9 @@ PictureThis::Application.routes.draw do
    
    resources :photos do 
     resources :comments
-    resources :tags 
+     
   end
-
+    resources :tags
    root :to => "welcome#index"
 
   # Example of regular route:
