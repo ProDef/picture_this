@@ -1,16 +1,19 @@
 PictureThis::Application.routes.draw do
+  devise_for :users
   get "welcome/index"
+  get "/photos/new"
+  get "/photos/show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+   
    resources :photos do 
     resources :comments
-    
+    resources :tags 
   end
 
-   resources :tags 
-   root 'welcome#index'
+   root :to => "welcome#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
