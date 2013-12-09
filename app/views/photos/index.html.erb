@@ -1,7 +1,5 @@
-<h1>Listings</h1>
+<h1>Home Feed</h1>
 
-
-<td><%= link_to 'NEW', new_photo_path %></td>
 <div>
 	<% @photo.each do |photo| %>
 	  <div class='col-md-4'>
@@ -11,8 +9,9 @@
       	<p>Tags:
         <%= tag_names(photo) %>
       </p>
-      <td><%= link_to 'Show', photo_path(photo) %></td>
-	    <td><%= link_to 'Destroy', photo_path(photo),
+      <td><%= link_to 'comment', photo_path(photo) %></td>
+      <td><%= link_to 'Update', edit_photo_path(photo) %></td>
+	    <td><%= link_to 'delete', photo_path(photo),
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </div>
     

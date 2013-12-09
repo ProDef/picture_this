@@ -7,18 +7,15 @@
    <%= f.label :title %>
    <%= f.text_field :title %>
 
-   <%= f.label :text %>
-   <%= f.text_field :text %>
-  
    <%= f.label :image %>
    <%= f.file_field :image %>
 
-   <%= f.label :tag_names %>
+   <%= f.label :caption %>
+   <%= f.text_field :text %>
+
+   <%= f.label :tags %>
    <%= f.text_field :tag_names %>
  
    <%= f.submit 'add photo'%>
   <% end %>
 
-  <%= link_to "home", photos_path %>
-
-  
