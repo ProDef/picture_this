@@ -1,0 +1,28 @@
+<% provide(:title, "Edit user") %>
+<h1>Update your profile</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(current_user.profile) do |f| %>
+
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+
+      <%= f.label :second_name %>
+      <%= f.text_field :second_name %>
+
+      <%= f.label :home_town %>
+      <%= f.text_field :home_town %>
+
+      <%= f.label :date_of_birth %>
+      <%= f.text_field :date_of_birth %>
+
+
+
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    <a href="http://gravatar.com/emails">change</a>
+  </div>
+</div>

@@ -20,6 +20,7 @@ before_filter :authenticate_user!
   		@photo = Photo.find(params[:id])
 	end
 
+
 	def edit
   		@photo = Photo.find(params[:id])
 	end

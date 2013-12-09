@@ -15,6 +15,8 @@ PictureThis::Application.routes.draw do
     resources :tags
    root :to => "welcome#index"
 
+   resources :profiles
+   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
