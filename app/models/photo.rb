@@ -1,4 +1,9 @@
 class Photo < ActiveRecord::Base
+
+  belongs_to :user
+  has_many :favourite_photos
+  has_many :favourites, through: :favourite_photos, source: :user
+
 	has_many :comments
 	
 	has_and_belongs_to_many :tags

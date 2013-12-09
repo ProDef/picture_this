@@ -3,7 +3,7 @@
 
 <td><%= link_to 'NEW', new_photo_path %></td>
 <div>
-	<% @photo.each do |photo| %>
+	<% @photos.each do |photo| %>
 	  <div class='col-md-4'>
       <h3><%= photo.title %></h3>
       <%= image_tag photo.image.url(:thumb), class: 'uploaded-pic' %>
@@ -14,7 +14,16 @@
       <td><%= link_to 'Show', photo_path(photo) %></td>
 	    <td><%= link_to 'Destroy', photo_path(photo),
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+                    
+  <p><%= link_to "favourite",   favourite_photo_path(photo, type: "favourite"), method: :put %></p>
+<p>  <%= link_to "unfavourite", favourite_photo_path(photo, type: "unfavourite"), method: :put %> </p>
+
+      
     </div>
     
 	<% end %>
+
+  
+
 </div>

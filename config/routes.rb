@@ -10,6 +10,7 @@ PictureThis::Application.routes.draw do
    
    resources :photos do 
     resources :comments
+    put :favourite, on: :member
      
   end
     resources :tags
