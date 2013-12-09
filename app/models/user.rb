@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :favourite_photos
   has_many :favourites, through: :favourite_photos, source: :photo
+
+
+  after_create :build_profile
+
+  def build_profile
+    Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
+  end
+
 end
