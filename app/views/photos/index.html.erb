@@ -2,6 +2,7 @@
 
 
 <td><%= link_to 'NEW', new_photo_path %></td>
+<td><%= link_to 'Favourites', user_favourites_path(current_user) %></td>
 <div>
 	<% @photos.each do |photo| %>
 	  <div class='col-md-4'>
@@ -23,6 +24,7 @@
     </div>
     
 	<% end %>
+
 
   
 

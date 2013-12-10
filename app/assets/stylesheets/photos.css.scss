@@ -3,10 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
  .navbar-static-top  {
-	background-color: red;
+	background-color: #FF6600;
 	color: white;
  }
 
  .navbar-brand {
  	color: white;
+ }
+
+ .container {
+ }
+
+ .navbar-brand {
+ 	float: left;
  }
