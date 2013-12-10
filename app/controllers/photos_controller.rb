@@ -35,7 +35,7 @@ before_filter :authenticate_user!
     if type == "favourite"
       current_user.favourites << @photo
       redirect_to :back, notice: "You favourited #{@photo.title}"
-
+      
     elsif type == "unfavourite"
       current_user.favourites.delete(@photo)
       redirect_to :back, notice: "Unfavourited #{@photo.title}"

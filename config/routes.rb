@@ -1,8 +1,14 @@
 PictureThis::Application.routes.draw do
-  devise_for :users
+  devise_for :users 
+
+  resources :users do
+    resources :favourites
+  end
+
   get "welcome/index"
   get "/photos/new"
   get "/photos/show"
+  #get "/users/user_id/favourites"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
