@@ -1,11 +1,11 @@
 class PhotosController < ApplicationController
-#before_filter :authenticate_user!
+before_filter :authenticate_user!
 	def new
 		@photo = Photo.new
 	end
 
 	def create
-		Photo.create(params[:photo].permit(:title, :text, :image, :tag_names))
+		Photo.create(params[:photo].permit(:title, :text, :image, :tag_names, :user_id, :user))
 		flash[:notice] = 'Photo added'
       	redirect_to photos_path
 	end
@@ -28,7 +28,7 @@ class PhotosController < ApplicationController
 	def update
 	  	@photo = Photo.find(params[:id])
 	 
-	  	if @photo.update(params[:photo].permit(:title, :text, :image, :tag_names))
+	  	if @photo.update(params[:photo].permit(:title, :text, :image, :tag_names, :user_id))
 	    	flash[:notice] = 'Photo updated'
 	    	redirect_to photos_path
 	  	else
