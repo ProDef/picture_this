@@ -8,7 +8,8 @@
       <%# link_to profile.name, profile %>
       <p>
   <strong>Username:</strong>
-  <%= profile.username %>
+  <%= profile.first_name %>
+  <%= profile.second_name %>
 </p>
     </li>
     <td><%= link_to 'Update profile', edit_profile_path(profile) %></td>
