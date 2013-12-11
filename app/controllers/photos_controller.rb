@@ -12,15 +12,11 @@ before_filter :authenticate_user!
 
 	def index
 		@photos = Photo.all
-		# @profile = Profile.all
 	end
-
-
 
 	def show
   		@photo = Photo.find(params[:id])
 	end
-
 
 	def edit
   		@photo = Photo.find(params[:id])

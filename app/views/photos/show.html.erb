@@ -1,16 +1,21 @@
 
 <p>
-  <strong>Photo:</strong>
-  <%= @photo.title %>
+  <strong></strong>
+  <%= @photo.user.profile.username %>
 </p>
- 
+
 <p>
-  <strong>description:</strong>
-  <%= @photo.text %>
+  <strong></strong>
+  <%= @photo.title %>
 </p>
 
 <p>
 <strong><%= image_tag @photo.image.url(:thumb) %></strong>
+</p>
+
+<p>
+  <strong></strong>
+  <%= @photo.text %>
 </p>
 
 <h3>Comments</h3>
@@ -29,8 +34,8 @@
 
 <%= form_for([@photo, @photo.comments.build]) do |f| %>
   <p>
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
+    <%#= f.label :commenter %><br />
+    <%#= f.text_field :commenter %>
   </p>
   <p>
     <%= f.label :comment %><br />
