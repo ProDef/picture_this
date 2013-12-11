@@ -5,19 +5,36 @@ before_filter :authenticate_user!
 	end
 
 	def create
-		Photo.create(params[:photo].permit(:title, :text, :image, :tag_names))
+		Photo.create(params[:photo].permit(:title, :text, :image, :tag_names, :user_id))
 		flash[:notice] = 'Photo added'
       	redirect_to photos_path
 	end
 
 	def index
 		@photos = Photo.all
+		@profile = Profile.all
 	end
 
 
 
 	def show
   		@photo = Photo.find(params[:id])
+	end
+
+
+	def edit
+  		@photo = Photo.find(params[:id])
+	end
+
+	def update
+	  	@photo = Photo.find(params[:id])
+	 
+	  	if @photo.update(params[:photo].permit(:title, :text, :image, :tag_names, :user_id))
+	    	flash[:notice] = 'Photo updated'
+	    	redirect_to photos_path
+	  	else
+	    	render 'edit'
+	  	end
 	end
 
 	def destroy

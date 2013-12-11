@@ -4,9 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :photos
+
+  has_one :profile, dependent: :destroy
+  has_many :photos, dependent: :destroy
   has_many :favourite_photos
   has_many :favourites, through: :favourite_photos, source: :photo
+
 
 
   after_create :build_profile

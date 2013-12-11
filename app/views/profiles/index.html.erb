@@ -1,0 +1,19 @@
+<% provide(:title, 'All users') %>
+<h1>All Profiles</h1>
+
+<ul class="users">
+  <% @profile.each do |profile| %>
+
+      <%# gravatar_for profile, size: 52 %>
+      <%# link_to profile.name, profile %>
+      <p>
+  <strong></strong>
+  <%= profile.first_name %>
+    <%= profile.second_name %>
+</p>
+
+    <td><%= link_to 'Update profile', edit_profile_path(profile) %></td>
+    <td><%= link_to 'view profile', profile_path(profile) %></td>
+  <% end %>
+</ul>
+
