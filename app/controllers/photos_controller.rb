@@ -12,7 +12,7 @@ before_filter :authenticate_user!
 
 	def index
 		@photos = Photo.all
-		@profile = Profile.all
+		# @profile = Profile.all
 	end
 
 

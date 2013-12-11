@@ -8,11 +8,9 @@
       <%# link_to profile.name, profile %>
       <p>
   <strong></strong>
-  <%= profile.first_name %>
-    <%= profile.second_name %>
+  <%= profile.username %>
 </p>
 
-    <td><%= link_to 'Update profile', edit_profile_path(profile) %></td>
     <td><%= link_to 'view profile', profile_path(profile) %></td>
   <% end %>
 </ul>

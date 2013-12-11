@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 	def update
 			@profile = Profile.find(params[:id])
 	 
-	  	if @profile.update(params[:profile].permit(:first_name, :second_name, :home_town, :date_of_birth))
+	  	if @profile.update(params[:profile].permit(:username, :first_name, :second_name, :home_town, :gender, :date_of_birth))
 	    	flash[:notice] = 'Profile updated'
 	    	redirect_to profile_path
 	  	else
