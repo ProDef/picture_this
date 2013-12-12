@@ -7,7 +7,7 @@
 
 <div class="g-plus" data-action="share"></div>
 <td></td>
-
+<%= link_to 'Favourites', user_favourites_path(current_user) %>
 <div>
 	<% @photos.each do |photo| %>
 	  <div class='col-md-4'>
