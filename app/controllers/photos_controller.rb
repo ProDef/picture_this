@@ -5,9 +5,14 @@ before_filter :authenticate_user!
 	end
 
 	def create
-		Photo.create(params[:photo].permit(:title, :text, :image, :tag_names, :user_id))
-		flash[:notice] = 'Photo added'
-      	redirect_to photos_path
+		@photo = Photo.new(params[:photo].permit(:title, :text, :image, :tag_names, :user_id))
+
+		if @photo.save
+			flash[:notice] = 'Photo added'
+	      	redirect_to photos_path
+	  else
+	  	render "new"
+	  end
 	end
 
 	def index
