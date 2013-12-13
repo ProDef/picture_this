@@ -31,7 +31,6 @@
           <% end %>
         	<p><%= photo.text %></p>
         	<p>Tags: <%= tag_names(photo) %></p>
-          <td><%= link_to 'Update', edit_photo_path(photo) %></td>
           <td><%= link_to 'delete', photo_path(photo),
                       method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
