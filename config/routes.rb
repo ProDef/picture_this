@@ -3,7 +3,12 @@ PictureThis::Application.routes.draw do
 
   resources :users do
     resources :favourites
+    member do
+      get :following, :followers
+    end
+
   end
+
 
   get "welcome/index"
   get "/photos/new"
@@ -23,6 +28,8 @@ PictureThis::Application.routes.draw do
    root :to => "welcome#index"
 
    resources :profiles
+
+   resources :relationships, only: [:create, :destroy]
    
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

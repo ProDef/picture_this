@@ -1,5 +1,16 @@
 <h1>Home Feed</h1>
 
+<% if signed_in? %>
+
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
+
+<% else %>
+
+<% end %>
+
+
 <div class="fb-share-button" data-href="http://www.facebook.com" data-width="500" data-type="button_count"></div>
 
 <div><a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="YOLO">Tweet</a>
@@ -23,8 +34,9 @@
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
                     
-  <p><%= link_to "favourite",   favourite_photo_path(photo, type: "favourite"), method: :put %></p>
-<p>  <%= link_to "unfavourite", favourite_photo_path(photo, type: "unfavourite"), method: :put %> </p>
+  <p><%= link_to "favourite",   favourite_photo_path(photo, type: "favourite"), method: :put %>
+  <%= link_to "unfavourite", favourite_photo_path(photo, type: "unfavourite"), method: :put %></p>
+
 
       
     </div>
