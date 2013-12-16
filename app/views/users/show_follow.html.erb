@@ -22,7 +22,7 @@
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users">
-        <%= render @users %>
+        <%#= render @users.id %>
       </ul>
       <%= will_paginate %>
     <% end %>

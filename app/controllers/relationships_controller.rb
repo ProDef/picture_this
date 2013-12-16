@@ -1,12 +1,12 @@
 class RelationshipsController < ApplicationController
 
- before_action :signed_in_user
+ before_action :authenticate_user!
 
   def create
     @user = User.find(params[:relationship][:followed_id])
     current_user.follow!(@user)
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to @user.profile }
       format.js
     end
   end
@@ -15,7 +15,7 @@ class RelationshipsController < ApplicationController
     @user = Relationship.find(params[:id]).followed
     current_user.unfollow!(@user)
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to @user.profile }
       format.js
     end
   end
