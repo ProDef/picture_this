@@ -12,9 +12,11 @@
     followers
   </a>
   <% @user ||= @profile.user %>
-  <a>
-  	<%= render "users/follow_form" %>
-  </a>
+  <% if @user != current_user %>
+	  <a>
+	  	<%= render "users/follow_form" %>
+	  </a>
+	<% end %>
 </div>
 
 <p>
