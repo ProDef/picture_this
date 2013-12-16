@@ -19,6 +19,22 @@
 <%= link_to 'Favourites', user_favourites_path(current_user) %>
 <div>
 
+	<% @photos.each do |photo| %>
+	  <div class='col-md-4'>
+      <h3><%= photo.title %></h3>
+      <%= image_tag photo.image.url(:thumb), class: 'uploaded-pic' %>
+      	<p><%= photo.text %></p>
+      	<p>Tags:
+        <%= tag_names(photo) %>
+      </p>
+      <td><%= link_to 'comment', photo_path(photo) %></td>
+	    <td><%= link_to 'delete', photo_path(photo),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+                    
+  <p><%= link_to "favourite",   favourite_photo_path(photo, type: "favourite"), method: :put %>
+  <%= link_to "unfavourite", favourite_photo_path(photo, type: "unfavourite"), method: :put %></p>
+
 	<% @photos.in_groups_of(3).map {|f| f.compact}.each do |photo_row| %>
     <div class="row">
       <% photo_row.each do |photo| %>
@@ -29,15 +45,15 @@
           <% end %>
         	<p><%= photo.text %></p>
         	<p>Tags: <%= tag_names(photo) %></p>
-          <% if current_user %>
+          <td><%= link_to 'Update', edit_photo_path(photo) %></td>
           <td><%= link_to 'delete', photo_path(photo),
                       method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
 
-          <p><%= link_to "favourite",   favourite_photo_path(photo, type: "favourite"), method: :put %>
-            <%= link_to "unfavourite", favourite_photo_path(photo, type: "unfavourite"), method: :put %> </p>
+          <p><%= link_to "favourite",   favourite_photo_path(photo, type: "favourite"), method: :put %></p>
+          <p>  <%= link_to "unfavourite", favourite_photo_path(photo, type: "unfavourite"), method: :put %> </p>
         </div>
       <% end %>
+>>>>>>> 866756069b84d4726502563c85e50c6cf1e85d05
     </div>
 	<% end %>
 </div>
