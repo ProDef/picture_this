@@ -28,6 +28,8 @@ PictureThis::Application.routes.draw do
    root :to => "welcome#index"
 
    resources :profiles
+   resources :messages
+   resources :conversations
 
    resources :relationships, only: [:create, :destroy]
    
