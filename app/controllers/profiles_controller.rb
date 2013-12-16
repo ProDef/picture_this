@@ -33,6 +33,7 @@ class ProfilesController < ApplicationController
 
 	def show
 			@profile = Profile.find(params[:id])
+			@photos = @profile.user.photos
 			@user = User.find(params[:id])
 	end
 
