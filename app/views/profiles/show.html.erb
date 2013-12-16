@@ -42,3 +42,13 @@
 
 <td><%= link_to 'Update profile', edit_profile_path %></td>
 <div>
+
+
+<% @photos.each do |photo| %>
+  <div class='col-md-4'>
+    <h3><%= photo.title %></h3>
+    <%= link_to photo_path(photo) do %>
+      <%= image_tag(photo.image.url(:thumb), class: 'uploaded-pic') %>
+    <% end %>
+  </div>
+<% end %>
