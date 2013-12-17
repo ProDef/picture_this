@@ -38,7 +38,7 @@ class MessagesController < ApplicationController
   def create
     @recipients = 
       if params[:_recipients].present?
-        @recipients = params[:_recipients].split(',').map{ |r| User.find(r) }
+        @recipients = params[:_recipients].split(',').map{ |r| Profile.find_by(username: r).try(:user) }.compact
       else
         []
       end
@@ -47,7 +47,7 @@ class MessagesController < ApplicationController
     if (@receipt.errors.blank?)
       @conversation = @receipt.conversation
       flash[:success]= t('mailboxer.sent')
-      redirect_to conversation_path(@conversation, :box => :sentbox)
+      redirect_to '/'
     else
       render :action => :new
     end

@@ -36,4 +36,10 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy!
   end
 
+  
+  def mailboxer_email(object)
+    nil
+  end
+
+
 end

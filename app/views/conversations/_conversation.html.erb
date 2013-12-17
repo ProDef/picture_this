@@ -5,10 +5,10 @@
 
     <header>
       <h5>
-        <%= link_to conversation.last_sender.profile.first_name, '#' %>
+        poo <%= link_to conversation.last_sender.profile.first_name, profile_path(conversation.last_sender.profile) %>
       </h5>
       <div class="date">
-        <%= t('time.ago', :time => time_ago_in_words(conversation.updated_at)) %>
+        koo <%= t('time.ago', :time => time_ago_in_words(conversation.updated_at)) %>
       </div>
     </header>
 
@@ -17,20 +17,12 @@
   <div class="content_right">
 
     <div class="subject">
-      <%= link_to(truncate(conversation.subject, :length => 55), conversation_path(conversation.id,:box => @box,:page => params[:page])) %>
+      foo <%= link_to(truncate(conversation.subject, :length => 55), conversation_path(conversation.id,:box => @box,:page => params[:page])) %>
     </div>
 
     <% unless @box.eql?'trash' %>
       <div class="action">
       
-        <%= link_to(image_tag('cancel.png', :alt => t('mailboxer.delete'), :title => t('mailboxer.delete')),
-                    conversation_path(conversation, :location => @box,
-                                                    :box => @box,
-                                                    :page => params[:page]),
-                                                    :confirm => t('mailboxer.delete_confirm',
-                                                                  :object => conversation.subject),
-                                                    :method => :delete,
-                                                    :remote => true) %>
       </div>
     <% end %>
 

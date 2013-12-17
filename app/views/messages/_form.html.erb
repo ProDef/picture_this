@@ -1,5 +1,5 @@
 <h2 class="colorfont">
-  <%= t('mailbox.message.new') %>
+ <%= "New message" %>
 </h2>
 
 <%= form_tag messages_path, :method => :post , :class => "new_message" do %>
@@ -20,6 +20,8 @@
 
   <%= label_tag 'To' %>
 
+  <%= text_field_tag :_recipients, @recipient.try(:id),  "data-recipient-name" => @recipient.try(:name) %>
+
   <%= label_tag 'Subject' %>
 
   <%= text_field_tag :subject,nil %>
@@ -30,6 +32,6 @@
     <%= text_area_tag :body, nil,:rows =>6, :cols=> 53, :maxlength => 5000 %>
   </div>
 
-  <%= submit_tag t('mailboxer.send'), :name => :send_message, :class => "btn pull-right" %>
+  <%= submit_tag 'send', :name => :send_message, :class => "btn pull-right" %>
 
 <% end %>
