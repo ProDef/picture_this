@@ -55,24 +55,24 @@ class ConversationsController < ApplicationController
 		 
 		redirect_to conversations_path
 
-    # @conversation.move_to_trash(@user)
+    @conversation.move_to_trash(@user)
 
-    # respond_to do |format|
-    #   format.html {
-    #     if params[:location].present? and params[:location] == 'conversation'
-    #       redirect_to conversations_path(:box => :trash)
-    #     else
-    #       redirect_to conversations_path(:box => @box,:page => params[:page])
-    #     end
-    #   }
-    #   format.js {
-    #     if params[:location].present? and params[:location] == 'conversation'
-    #       render :js => "window.location = '#{conversations_path(:box => @box,:page => params[:page])}';"
-    #     else
-    #       render 'conversations/destroy'
-    #     end
-    #   }
-    # end
+    respond_to do |format|
+      format.html {
+        if params[:location].present? and params[:location] == 'conversation'
+          redirect_to conversations_path(:box => :trash)
+        else
+          redirect_to conversations_path(:box => @box,:page => params[:page])
+        end
+      }
+      format.js {
+        if params[:location].present? and params[:location] == 'conversation'
+          render :js => "window.location = '#{conversations_path(:box => @box,:page => params[:page])}';"
+        else
+          render 'conversations/destroy'
+        end
+      }
+    end
   end
 
   private

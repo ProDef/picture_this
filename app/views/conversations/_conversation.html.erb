@@ -2,8 +2,12 @@
 
   <div class="content_left">
     
-
     <header>
+      <p>
+       <%= link_to 'new message', new_message_path %> 
+        <%= link_to 'inbox', "conversations?box=inbox" %>
+          <%= link_to 'sentbox', "conversations?box=sentbox" %></p>
+
       <h5>
          <%= link_to conversation.last_sender.profile.first_name, profile_path(conversation.last_sender.profile) %>
       
