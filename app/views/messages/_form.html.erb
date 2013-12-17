@@ -18,19 +18,19 @@
     </div>
   <% end %>
 
-  <%= label_tag 'To' %>
+  <p><%= label_tag 'To' %>
 
-  <%= text_field_tag :_recipients, @recipient.try(:id),  "data-recipient-name" => @recipient.try(:name) %>
+  <%= text_field_tag :_recipients, @recipient.try(:id),  "data-recipient-name" => @recipient.try(:name) %></p>
 
-  <%= label_tag 'Subject' %>
+  <p><%= label_tag 'Subject' %>
 
-  <%= text_field_tag :subject,nil %>
+  <%= text_field_tag :subject,nil %></p>
 
-  <%= label_tag t('mailboxer.form.body') %>
+  <p><%= label_tag 'Message' %>
 
   <div id="ck_editor" >
     <%= text_area_tag :body, nil,:rows =>6, :cols=> 53, :maxlength => 5000 %>
-  </div>
+  </div></p>
 
   <%= submit_tag 'send', :name => :send_message, :class => "btn pull-right" %>
 

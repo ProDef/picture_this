@@ -5,11 +5,12 @@
 
     <header>
       <h5>
-        poo <%= link_to conversation.last_sender.profile.first_name, profile_path(conversation.last_sender.profile) %>
-      </h5>
+         <%= link_to conversation.last_sender.profile.first_name, profile_path(conversation.last_sender.profile) %>
+      
       <div class="date">
-        koo <%= t('time.ago', :time => time_ago_in_words(conversation.updated_at)) %>
+         <%= t('time.ago', :time => time_ago_in_words(conversation.updated_at)) %>
       </div>
+
     </header>
 
   </div>
@@ -17,8 +18,10 @@
   <div class="content_right">
 
     <div class="subject">
-      foo <%= link_to(truncate(conversation.subject, :length => 55), conversation_path(conversation.id,:box => @box,:page => params[:page])) %>
+       <%= link_to(truncate(conversation.subject, :length => 55), conversation_path(conversation.id,:box => @box,:page => params[:page])) %>
     </div>
+    <td><%= link_to 'delete', conversation_path(conversation),
+                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
     <% unless @box.eql?'trash' %>
       <div class="action">
