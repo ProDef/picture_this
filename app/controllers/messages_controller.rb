@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :get_mailbox, :get_box, :get_actor
+  before_filter :get_mailbox, :get_box #, :get_user
   def index
     redirect_to conversations_path(:box => @box)
   end
@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
   # GET /messages/1.xml
   def show
     if @message = Message.find_by_id(params[:id]) and @conversation = @message.conversation
-      if @conversation.is_participant?(@actor)
+      if @conversation.is_participant?(@user)
         redirect_to conversation_path(@conversation, :box => @box, :anchor => "message_" + @message.id.to_s)
       return
       end
@@ -22,13 +22,13 @@ class MessagesController < ApplicationController
   # GET /messages/new.xml
   def new
     if params[:receiver].present?
-      @recipient = Actor.find_by_slug(params[:receiver])
+      @recipient = User.find_by_slug(params[:receiver])
       return if @recipient.nil?
-      @recipient = nil if Actor.normalize(@recipient)==Actor.normalize(current_subject)
+      @recipient = nil if User.normalize(@recipient)==User.normalize(current_subject)
     end
   end
 
-  # GET /messages/1/edit
+  # GET /messages/1/edit``z  xsa xza	w 
   def edit
 
   end
@@ -38,12 +38,12 @@ class MessagesController < ApplicationController
   def create
     @recipients = 
       if params[:_recipients].present?
-        @recipients = params[:_recipients].split(',').map{ |r| Actor.find(r) }
+        @recipients = params[:_recipients].split(',').map{ |r| User.find(r) }
       else
         []
       end
 
-    @receipt = @actor.send_message(@recipients, params[:body], params[:subject])
+    @receipt = @user.send_message(@recipients, params[:body], params[:subject])
     if (@receipt.errors.blank?)
       @conversation = @receipt.conversation
       flash[:success]= t('mailboxer.sent')
@@ -67,13 +67,16 @@ class MessagesController < ApplicationController
 
   private
 
-  def get_mailbox
-    @mailbox = current_subject.mailbox
+  def current_subject
   end
 
-  def get_actor
-    @actor = Actor.normalize(current_subject)
+  def get_mailbox
+    @mailbox = current_user.mailbox
   end
+
+  # def get_user
+  #   @user = User.normalize(current_user)
+  # end
 
   def get_box
     if params[:box].blank? or !["inbox","sentbox","trash"].include?params[:box]

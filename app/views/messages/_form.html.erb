@@ -20,8 +20,6 @@
 
   <%= label_tag t('mailboxer.form.recipients') %>
 
-  <%= hidden_field_tag :_recipients, @recipient.try(:id), "data-path" => contacts_path(format: :json), "data-recipient-name" => @recipient.try(:name) %>
-
   <%= label_tag t('mailboxer.form.subject') %>
 
   <%= text_field_tag :subject,nil %>

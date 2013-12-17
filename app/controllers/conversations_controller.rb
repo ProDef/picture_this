@@ -1,15 +1,15 @@
 class ConversationsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :get_mailbox, :get_box, :get_actor
+  before_filter :get_mailbox, :get_box #, :get_user
   before_filter :check_current_subject_in_conversation, :only => [:show, :update, :destroy]
 
   def index
     if @box.eql? "inbox"
-      @conversations = @mailbox.inbox.page(params[:page]).per(9)
+      @conversations = @mailbox.inbox #.page(params[:page]).per(9)
     elsif @box.eql? "sentbox"
-      @conversations = @mailbox.sentbox.page(params[:page]).per(9)
+      @conversations = @mailbox.sentbox. #page(params[:page]).per(9)
     else
-      @conversations = @mailbox.trash.page(params[:page]).per(9)
+      @conversations = @mailbox.trash #.page(params[:page]).per(9)
     end
 
     respond_to do |format|
@@ -29,12 +29,12 @@ class ConversationsController < ApplicationController
 
   def update
     if params[:untrash].present?
-    @conversation.untrash(@actor)
+    @conversation.untrash(@user)
     end
 
     if params[:reply_all].present?
       last_receipt = @mailbox.receipts_for(@conversation).last
-      @receipt = @actor.reply_to_all(last_receipt, params[:body])
+      @receipt = @user.reply_to_all(last_receipt, params[:body])
     end
 
     if @box.eql? 'trash'
@@ -49,7 +49,7 @@ class ConversationsController < ApplicationController
 
   def destroy
 
-    @conversation.move_to_trash(@actor)
+    @conversation.move_to_trash(@user)
 
     respond_to do |format|
       format.html {
@@ -72,11 +72,7 @@ class ConversationsController < ApplicationController
   private
 
   def get_mailbox
-    @mailbox = current_actor.mailbox
-  end
-
-  def get_actor
-    @actor = Actor.normalize(current_subject)
+    @mailbox = current_user.mailbox
   end
 
   def get_box
@@ -90,10 +86,10 @@ class ConversationsController < ApplicationController
   def check_current_subject_in_conversation
     @conversation = Conversation.find_by_id(params[:id])
 
-    if @conversation.nil? or !@conversation.is_participant?(@actor)
+    if @conversation.nil? or !@conversation.is_participant?(@user)
       redirect_to conversations_path(:box => @box)
     return
     end
   end
-  
+
 end

@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   after_create :build_profile
+  acts_as_messageable
 
   def build_profile
     Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
