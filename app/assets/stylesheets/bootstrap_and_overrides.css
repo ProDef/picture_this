@@ -1,7 +1,60 @@
-/*
+ /*
   =require twitter-bootstrap-static/bootstrap
 
   Use Font Awesome icons (default)
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+.sidebar-nav {
+	background: none;
+	border: none;
+	
+}
+
+body {
+	background: url("/assets/images/Sunlit_London.jpg")
+}
+
+
+.navbar li a {
+	
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	padding-top: 10px;
+
+}
+
+.navbar-static-top  {
+	background-color: #FF6600;
+	color: white;
+ }
+
+.navbar-nav {
+	float: right;
+	display: inline;
+}
+
+ /*.container li {
+ 	float: right;
+
+ }*/
+
+ .navbar-brand {
+ 	
+ 	font-family: 'Lily Script One', cursive;
+ 	font-size: 20px;
+ 	color: white;
+ }
+
+ .well {
+ 	padding: 19px;
+ 	border-radius: 4px;
+ 	position: static;
+ }
+
+ section {
+ 	padding: 19px;
+ 	color: orange;
+ 	font-size: 18px;
+ }

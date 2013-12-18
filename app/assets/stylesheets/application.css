@@ -12,4 +12,6 @@
  *= require_tree .
  */
 
-
+body {
+	background: url("/assets/images/Sunlit_London.jpg")
+}
