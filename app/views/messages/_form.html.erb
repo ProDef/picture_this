@@ -1,0 +1,39 @@
+<h2 class="colorfont">
+ <%= "New message" %>
+</h2>
+<p><%= link_to 'inbox', "conversations?box=inbox" %>
+          <%= link_to 'sentbox', "conversations?box=sentbox" %></p>
+
+<%= form_tag messages_path, :method => :post , :class => "new_message" do %>
+  <% if @receipt and @receipt.errors.any? %>
+    <div class="error">
+      <h2>
+        <%= pluralize(@receipt.errors.count, "error") %> prohibited this message from being sent:
+      </h2>
+      <ul>
+        <% @receipt.errors.full_messages.each do |msg| %>
+          <li>
+          <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p><%= label_tag 'To' %>
+
+  <%= text_field_tag :_recipients, @recipient.try(:id),  "data-recipient-name" => @recipient.try(:name) %></p>
+
+  <p><%= label_tag 'Subject' %>
+
+  <%= text_field_tag :subject,nil %></p>
+
+  <p><%= label_tag 'Message' %>
+
+  <div id="ck_editor" >
+    <%= text_area_tag :body, nil,:rows =>6, :cols=> 53, :maxlength => 5000 %>
+  </div></p>
+
+  <%= submit_tag 'send', :name => :send_message, :class => "btn pull-right" %>
+
+<% end %>

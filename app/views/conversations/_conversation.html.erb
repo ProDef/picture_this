@@ -1,0 +1,40 @@
+<%= div_for(conversation, :class =>"#{ 'unread ' if conversation.is_unread?(@actor) }") do %>
+
+  <div class="content_left">
+    
+    <header>
+      <p>
+       <%= link_to 'new message', new_message_path %> 
+        <%= link_to 'inbox', "conversations?box=inbox" %>
+          <%= link_to 'sentbox', "conversations?box=sentbox" %></p>
+
+      <h5>
+         <%= link_to conversation.last_sender.profile.first_name, profile_path(conversation.last_sender.profile) %>
+      
+      <div class="date">
+         <%= t('time.ago', :time => time_ago_in_words(conversation.updated_at)) %>
+      </div>
+
+    </header>
+
+  </div>
+
+  <div class="content_right">
+
+    <div class="subject">
+       <%= link_to(truncate(conversation.subject, :length => 55), conversation_path(conversation.id,:box => @box,:page => params[:page])) %>
+    </div>
+    <td><%= link_to 'delete', conversation_path(conversation),
+                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <% unless @box.eql?'trash' %>
+      <div class="action">
+      
+      </div>
+    <% end %>
+
+    <div class="briefing">
+      <%= raw(truncate(strip_tags(conversation.last_message.body), :length => 50)) %>
+    </div>
+  </div>
+<% end %>

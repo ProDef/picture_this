@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  respond_to :html, :json
 
   before_action :current_user,
                 only: [:index, :edit, :update, :destroy, :following, :followers]

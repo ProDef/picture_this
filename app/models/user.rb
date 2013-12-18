@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   after_create :build_profile
+  acts_as_messageable
 
   def build_profile
     Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
@@ -34,5 +35,11 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy!
   end
+
+  
+  def mailboxer_email(object)
+    nil
+  end
+
 
 end
