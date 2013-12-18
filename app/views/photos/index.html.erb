@@ -18,10 +18,11 @@
           <% end %>
         	<p><%= photo.text %></p>
         	<p>Tags: <%= tag_names(photo) %></p>
-          <td><%= link_to 'delete', photo_path(photo),
-                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-          <p><%= link_to favourite_photo_path(photo, type: "favourite"), method: :put do %><i class="fa fa-star fa-2x"></i><% end %> </p>
+          <td>
+            <%= link_to favourite_photo_path(photo, type: "favourite"), method: :put do %><i class="fa fa-star fa-2x"></i><% end %> 
+            <%= link_to photo_path(photo),
+                      method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash-o fa-2x"></i></i><% end %>
+          </td>
         </div>
       <% end %>
 
