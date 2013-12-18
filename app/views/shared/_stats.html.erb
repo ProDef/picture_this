@@ -1,5 +1,5 @@
 <% @user ||= current_user %>
-<%= @user.profile.username %>
+<h2><%= @user.profile.username %></h2>
 <div class="stats">
   <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat">
