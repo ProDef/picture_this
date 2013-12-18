@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
   after_create :build_profile
   acts_as_messageable
 
+  include Gravtastic
+  gravtastic
+  
+
   def build_profile
     Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
   end
