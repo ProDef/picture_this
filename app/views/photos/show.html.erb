@@ -18,25 +18,16 @@
   <%= @photo.text %>
 </p>
 
-<h3>Comments</h3>
-<% @photo.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
 
+<div class="fb-share-button" data-href="http://www.facebook.com" data-width="500" data-type="button_count"></div>
+
+<div><a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="YOLO">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
+
+<div class="g-plus" data-action="share"></div>
 
 <%= form_for([@photo, @photo.comments.build]) do |f| %>
-  <p>
-    <%#= f.label :commenter %><br />
-    <%#= f.text_field :commenter %>
-  </p>
+  
   <p>
     <%= f.label :comment %><br />
     <%= f.text_area :body %>
@@ -45,5 +36,20 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<h3>Comments</h3>
+<% @photo.comments.each do |comment| %>
+  <p>
+    <%= current_user.profile.username %>
+  </p>
+ 
+  <p>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+
+
+
 
 

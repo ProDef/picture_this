@@ -6,7 +6,7 @@
          <%= link_to conversation.last_sender.profile.first_name, profile_path(conversation.last_sender.profile) %>
       
       <div class="date">
-         <%= t('time.ago', :time => time_ago_in_words(conversation.updated_at)) %>
+         <%= time_ago_in_words(conversation.updated_at) %> ago
       </div>
 
     </header>
@@ -18,7 +18,7 @@
     <div class="subject">
        <%= link_to(truncate(conversation.subject, :length => 55), conversation_path(conversation.id,:box => @box,:page => params[:page])) %>
     </div>
-    <td><%= link_to("Delete", conversation, :method => :delete, :class => 'action', :confirm => 'Are you sure?') %></td>
+   
 
     <% unless @box.eql?'trash' %>
       <div class="action">
@@ -27,7 +27,8 @@
     <% end %>
 
     <div class="briefing">
-      <%= raw(truncate(strip_tags(conversation.last_message.body), :length => 50)) %>
+      <%= raw(truncate(strip_tags(conversation.last_message.body), :length => 140)) %>
     </div>
   </div>
 <% end %>
+ <p><%= link_to("Delete", conversation, :method => :delete, :class => 'action', :confirm => 'Are you sure?') %></p>

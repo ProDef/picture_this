@@ -17,8 +17,8 @@
       <p> <%= f.label :home_town %>
       <%= f.text_field :home_town %> </p>
 
-      <p> <%= f.label :gender %>
-      <p> <%= f.select :gender, [["Male"],["Female"]] %>
+      <p> <%= f.label :sex %>
+      <p> <%= f.select :gender, [["Male"],["Female"], ["Yes please"]] %>
 
       <p> <%= f.label :date_of_birth %>
       <%= f.text_field :date_of_birth %> </p>
@@ -29,6 +29,6 @@
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <a href="http://gravatar.com/emails">change</a>
+<!--     <a href="http://gravatar.com/emails">change</a> -->
   </div>
 </div>

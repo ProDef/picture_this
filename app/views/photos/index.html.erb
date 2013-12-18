@@ -1,25 +1,14 @@
-<h1>Home Feed</h1>
+<h1>Feed</h1>
 
 <% if signed_in? %>
-
       <section>
         <%= render 'shared/stats' %>
       </section>
 
 <% end %>
 
-
-<div class="fb-share-button" data-href="http://www.facebook.com" data-width="500" data-type="button_count"></div>
-
-<div><a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="YOLO">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
-
-<div class="g-plus" data-action="share"></div>
-
 <div>
-
-
-	<% @photos.in_groups_of(3).map {|f| f.compact}.each do |photo_row| %>
+	<% @photos.in_groups_of(4).map {|f| f.compact}.each do |photo_row| %>
     <div class="row">
       <% photo_row.each do |photo| %>
         <div class='col-md-4'>
@@ -32,8 +21,7 @@
           <td><%= link_to 'delete', photo_path(photo),
                       method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-          <p><%= link_to "favourite",   favourite_photo_path(photo, type: "favourite"), method: :put %>
-          <%= link_to "unfavourite", favourite_photo_path(photo, type: "unfavourite"), method: :put %> </p>
+          <p><%= link_to favourite_photo_path(photo, type: "favourite"), method: :put do %><i class="fa fa-star fa-2x"></i><% end %> </p>
         </div>
       <% end %>
 

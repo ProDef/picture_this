@@ -24,8 +24,8 @@
    <%= f.label :caption %>
    <%= f.text_field :text %>
 
-   <%= f.label :tags %>
-   <%= f.text_field :tag_names %>
+   <p><%= f.label :tags %>
+   <%= f.text_field :tag_names %></p>
 
    <%= f.hidden_field :user_id, value: current_user.id %>
    <%= f.hidden_field :user, value: current_user %>

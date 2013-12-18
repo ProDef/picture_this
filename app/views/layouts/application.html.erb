@@ -88,7 +88,7 @@
                 <li><a href="/messages/new">New message</a></li>
                 <li><a href="/conversations?box=inbox">Inbox</a></li>
                 <li><a href="/conversations?box=sentbox">Sent</a></li></ul>
-            <li><a href="/photos/favourites"><i class="fa fa-star fa-2x"></i></a></li>
+            <li><%= link_to user_favourites_path(current_user) do %><i class="fa fa-star fa-2x"></i><% end %></li>
             <li><a href="/profiles"><i class="fa fa-search fa-2x"></i></a></li>
             <li>
               <%= link_to profile_path(current_user.profile) do %>
@@ -110,7 +110,7 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-12">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
