@@ -17,7 +17,7 @@
             <%= image_tag(photo.image.url(:thumb), class: 'uploaded-pic') %>
           <% end %>
         	<p><%= photo.text %></p>
-        	<p>Tags: <%= tag_names(photo) %></p>
+        	<p><%= tag_names(photo) %></p>
           <td>
             <%= link_to favourite_photo_path(photo, type: "favourite"), method: :put do %><i class="fa fa-star fa-2x"></i><% end %> 
             <%= link_to photo_path(photo),

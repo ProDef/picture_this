@@ -22,11 +22,11 @@
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users">
-        <%= @user.profile.username %>
-
+        <% @users.each do |user| %>
+          <li><%= user.profile.username %></li>
+        <% end %>
         <%#= render @users %>
       </ul>
-      <%= will_paginate %>
     <% end %>
   </div>
 </div>
