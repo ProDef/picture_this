@@ -1,8 +1,6 @@
 <h2 class="colorfont">
  <%= "New message" %>
 </h2>
-<p><%= link_to 'inbox', "conversations?box=inbox" %>
-          <%= link_to 'sentbox', "conversations?box=sentbox" %></p>
 
 <%= form_tag messages_path, :method => :post , :class => "new_message" do %>
   <% if @receipt and @receipt.errors.any? %>

@@ -1,7 +1,3 @@
-<p><%= link_to 'new message', new_message_path %> 
-        <%= link_to 'inbox', "conversations?box=inbox" %>
-          <%= link_to 'sentbox', "conversations?box=sentbox" %></p>
-
 <%= div_for(conversation, :class =>"#{ 'unread ' if conversation.is_unread?(@actor) }") do %>
 
   <div class="content_left">
