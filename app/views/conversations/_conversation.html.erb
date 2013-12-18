@@ -1,13 +1,11 @@
-<%= div_for(conversation, :class =>"#{ 'unread ' if conversation.is_unread?(@actor) }") do %>
-
-  <div class="content_left">
-    
-    <header>
-      <p>
-       <%= link_to 'new message', new_message_path %> 
+<p><%= link_to 'new message', new_message_path %> 
         <%= link_to 'inbox', "conversations?box=inbox" %>
           <%= link_to 'sentbox', "conversations?box=sentbox" %></p>
 
+<%= div_for(conversation, :class =>"#{ 'unread ' if conversation.is_unread?(@actor) }") do %>
+
+  <div class="content_left">
+    <header>
       <h5>
          <%= link_to conversation.last_sender.profile.first_name, profile_path(conversation.last_sender.profile) %>
       
@@ -24,8 +22,7 @@
     <div class="subject">
        <%= link_to(truncate(conversation.subject, :length => 55), conversation_path(conversation.id,:box => @box,:page => params[:page])) %>
     </div>
-    <td><%= link_to 'delete', conversation_path(conversation),
-                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to("Delete", conversation, :method => :delete, :class => 'action', :confirm => 'Are you sure?') %></td>
 
     <% unless @box.eql?'trash' %>
       <div class="action">

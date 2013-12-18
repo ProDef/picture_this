@@ -10,9 +10,10 @@
       <p>
   <strong></strong>
   <%= profile.username %>
+  <%= link_to 'view profile', profile_path(profile) %>
 </p>
 
-    <td><%= link_to 'view profile', profile_path(profile) %></td>
+    
   <% end %>
 </ul>
 
