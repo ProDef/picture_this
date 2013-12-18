@@ -19,12 +19,12 @@
 </p>
 
 
-<div class="fb-share-button" data-href="http://www.facebook.com" data-width="500" data-type="button_count"></div>
+<div> <a data-href="http://www.facebook.com" data-width="500" ><i class="fa fa-facebook fa-2x"></i></a>
 
-<div><a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="YOLO">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
+<a href="https://twitter.com/share" data-hashtags="YOLO"><i class="fa fa-twitter fa-2x"></i></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-<div class="g-plus" data-action="share"></div>
+<a href="https://plus.google.com/share?url=ADD_YOUR_URL"><i class="fa fa-google-plus fa-2x"></i></a></div>
 
 <%= form_for([@photo, @photo.comments.build]) do |f| %>
   
