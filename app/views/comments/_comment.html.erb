@@ -1,0 +1,12 @@
+<div class="comments">
+<h3>Comments</h3>
+<h4><% @photo.comments.each do |comment| %><h4>
+  <p>
+    <%= current_user.profile.username %>
+  </p>
+  <h5><p>
+    <%= comment.body %>
+  </p></h5>
+
+<% end %>
+</div>
