@@ -67,6 +67,15 @@ body {
   display: block
 }
 
+ .span6{
+  width: 4em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block
+}
+
+
 .stats a {
  	border-left: 2px black;
  }
