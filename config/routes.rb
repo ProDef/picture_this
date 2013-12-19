@@ -25,7 +25,7 @@ PictureThis::Application.routes.draw do
      
   end
     resources :tags
-   root :to => "welcome#index"
+   root :to => "photos#index"
 
    resources :profiles
    resources :messages
