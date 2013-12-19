@@ -11,20 +11,25 @@
     float: left;
     padding: 0 10px;
     color: gray;
+
     &:first-child {
       padding-left: 0;
       border: 0;
-    }
+      }
     &:hover {
       text-decoration: none;
       color: blue;
     }
   }
+
   strong {
     display: block;
   }
 }
 
+.sign {
+  float: 30px;
+}
 .user_avatars {
   overflow: auto;
   margin-top: 10px;
