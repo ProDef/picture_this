@@ -7,8 +7,8 @@
   <h5><p>
     <%= comment.body %>
   </p></h5>
-  <%= link_to 'remove Comment', [comment.photo, comment],
+  <%= link_to [comment.photo, comment],
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash-o "></i><% end %>
 <% end %>
 </div>

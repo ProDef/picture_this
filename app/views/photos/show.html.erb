@@ -1,4 +1,4 @@
-
+<body>
 <p class="name">
   <strong></strong>
   <%= @photo.user.profile.username %>
@@ -19,7 +19,11 @@
 </p>
 
 
-<div> <a data-href="http://www.facebook.com" data-width="500" ><i class="fa fa-facebook fa-2x"></i></a>
+<div>
+<% if current_user %>
+<%= link_to user_favourites_path(current_user) do %><i class="fa fa-star fa-2x"></i><% end %><% end %>
+
+ <a data-href="http://www.facebook.com" data-width="500" ><i class="fa fa-facebook fa-2x"></i></a>
 
 <a href="https://twitter.com/share" data-hashtags="YOLO"><i class="fa fa-twitter fa-2x"></i></a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -33,6 +37,8 @@
 <%= render @photo.comments %>
 
 
+
+</body>
 
 
 

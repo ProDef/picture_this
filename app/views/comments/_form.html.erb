@@ -7,8 +7,6 @@
     <%= f.text_area :body %>
   </div>
   
-  <br>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+  <div><p class="post">
+    <%= submit_tag 'Post comment', :name => :send_message, :class => "btn pull-left"  %>  
+<% end %></p></div><br><br>

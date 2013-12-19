@@ -10,10 +10,12 @@
     </header>
 
   </div>
- 
   <div class="content_right">
-
+<div class="panel panel-default">
+  <div class="panel-body">
     <div class="subject">
+  
+ 
        <%= link_to(truncate(conversation.subject, :length => 55), conversation_path(conversation.id,:box => @box,:page => params[:page])) %>
     </div>
    
@@ -30,9 +32,10 @@
     </div>
   </div>
 <% end %>
-</div>
-</div>
+
 <div class="date">
          <%= time_ago_in_words(conversation.updated_at) %> ago
       </div>
  <p><a href="/messages/new"><i class="fa fa-reply fa-2x"></i></a><%= link_to conversation, :method => :delete, :class => 'action', :confirm => 'Are you sure?' do %><i class="fa fa-trash-o fa-2x"></i><% end %></p>
+ </div>
+  </div>

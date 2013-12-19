@@ -1,5 +1,5 @@
 <h2 class="colorfont">
- <%= "New message" %>
+ <p><%= "New message" %></p>
 </h2>
 
 <%= form_tag messages_path, :method => :post , :class => "new_message" do %>
@@ -18,21 +18,23 @@
     </div>
   <% end %>
 
-  <p><%= label_tag 'To' %>
+  <strong><p class="message"><%= label_tag 'To' %>
 
   <%= text_field_tag :_recipients, @recipient.try(:id),  "data-recipient-name" => @recipient.try(:name) %></p>
 
-  <p><%= label_tag 'Subject' %>
+  <p class="message"><%= label_tag 'Subject' %>
 
   <%= text_field_tag :subject,nil %></p>
 
-  <p><%= label_tag 'Message' %>
+  <p class="message"><%= label_tag 'Message' %>
 
   <div id="ck_editor" >
     <%= text_area_tag :body, nil,:rows =>6, :cols=> 53, :maxlength => 5000 %>
-  </div></p>
+  </div></p></strong>
 
-  <%= submit_tag 'send', :name => :send_message, :class => "btn pull-left" %>
+  <div id="send"><%= submit_tag 'Send', :name => :send_message, :class => "btn pull-left"  %></div>
 
 <% end %>
+
+
 
