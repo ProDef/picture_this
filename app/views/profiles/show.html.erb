@@ -21,16 +21,15 @@
 	  </a>
 	<% end %>
 </div>
-
-<p>
-  <%= image_tag @user.gravatar_url %>
+<p><%= image_tag @user.gravatar_url %></p>
+<a href="http://gravatar.com/emails">upload photo</a>
+<%= link_to edit_profile_path do %><i class="fa fa-wrench"></i><% end %>
+<p>  
   <strong>Name:</strong>
   <%= @profile.first_name %>
   <%= @profile.second_name %>
   <a href="/messages/new"><i class="fa fa-pencil-square fa-2x"></i></a>
 </p>
-<a href="http://gravatar.com/emails">upload photo</a>
-
 
 <p>
   <strong>Sex:</strong>
@@ -47,8 +46,6 @@
   <strong>Location:</strong>
   <%= @profile.home_town %>
 </p>
-
-<td><%= link_to 'Update profile', edit_profile_path %></td>
 <div>
 
 

@@ -6,7 +6,7 @@
 <% end %>
 
 <div>
-	<% @photos.in_groups_of(4).map {|f| f.compact}.each do |photo_row| %>
+	<% @photos.in_groups_of(1).map {|f| f.compact}.each do |photo_row| %>
     <div class="row">
       <% photo_row.each do |photo| %>
         <div class='col-md-4'>
