@@ -6,7 +6,7 @@
   <% @profile.each do |profile| %>
 
 
-      <%# gravatar_for profile, size: 52 %>
+      <p><%= image_tag profile.user.gravatar_url %></p>
       <%# link_to profile.name, profile %>
       <p id="user">
   <strong>
