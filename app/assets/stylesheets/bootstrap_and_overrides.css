@@ -70,3 +70,8 @@ body {
 .stats a {
  	border-left: 2px black;
  }
+
+
+.navbar-nav > li > a {
+	color: #fff;
+}
