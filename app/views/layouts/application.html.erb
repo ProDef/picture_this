@@ -104,7 +104,9 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs fa-2x"></i></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><%= render "layouts/user_links" %></a></li>
-                <li><%= link_to "Update profile", edit_profile_path(current_user.profile) %>"></li>
+                <% if current_user %>
+                  <li><%= link_to "Update profile", edit_profile_path(current_user.profile) %>"></li>
+                <% end %>
                 
               </ul>
             </li>
