@@ -22,6 +22,10 @@
 <div>
 <% if current_user %>
 <%= link_to user_favourites_path(current_user) do %><i class="fa fa-star fa-2x"></i><% end %><% end %>
+<% if @photo.user == current_user %>
+              <%= link_to photo_path,
+                        method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash-o fa-2x"></i></i><% end %>
+            <% end %>
 
  <a data-href="http://www.facebook.com" data-width="500" ><i class="fa fa-facebook fa-2x"></i></a>
 
